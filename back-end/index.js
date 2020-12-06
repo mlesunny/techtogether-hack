@@ -17,7 +17,7 @@ app.use(express.static('build'))
 app.use(express.json())
 
 
-// END POINTS
+// END POINTS - add_to_library
 
 app.post('/add_to_library', async (request, response) => {
 
