@@ -18,44 +18,20 @@ app.use(express.json())
 
 
 // END POINTS
-//test
-//response.send(<h2>hey this is working </h2>)
-//start up the back end node index.js, copy paste endpoint into the localhost:3001/add_to_library
-//look at the documentation - either console log or respond
-//console/log([data])
-//response.json([data])
-//or just actually check the database
 
 app.post('/add_to_library', async (request, response) => {
 
   const body = request.body
-  
-  /*
-  track number, title, artist, url
-  */
 
-  try{
+  try{    
     
-    const data = {
-      "track 1": {
-        "id" : body.id,
-        "title" : body.title,
-        "artist" : body.artist,
-        "url" : body.url
-      }
-    }
-    //there's probably a cleaner way to do this 
-    
-    
-    db.collection('moods').doc('happy').set(data);
+    db.collection('moods').doc('happy').update(body);
 
     // ----------EDIT CODE ABOVE HERE 
   } catch(error){
     console.log(error)
   }
     response.send('<h1> Received the data!')
-//console.log(data)
-//response.json(data)
 
 })
 
